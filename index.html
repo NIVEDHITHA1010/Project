@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <button id="hamburger-menu" onclick="toggleMenu()">☰</button>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+                <li><a href="#" onclick="showSection('expenses')">Expenses</a></li>
+                <li><a href="#" onclick="showSection('budget')">Budget</a></li>
+            </ul>
+        </nav>
+
+        <section id="dashboard" class="section active">
+            <h2>Dashboard</h2>
+            <div class="summary">
+                <div id="totalIncome">Total Income: $0</div>
+                <div id="totalExpenses">Total Expenses: $0</div>
+                <div id="totalSavings">Total Savings: $0</div>
+            </div>
+        </section>
+
+        <section id="expenses" class="section hidden">
+            <h2>Expenses</h2>
+            <div class="expense-form">
+                <input type="text" id="title" placeholder="Expense Title">
+                <input type="number" id="amount" placeholder="Amount">
+                <input type="date" id="date">
+                <select id="category">
+                    <option value="Personal Expenses">Personal Expenses</option>
+                    <option value="Professional Expenses">Professional Expenses</option>
+                    <option value="Fuel">Fuel</option>
+                    <option value="Groceries">Groceries</option>
+                </select>
+                <input type="text" id="description" placeholder="Description">
+                <button onclick="addExpense()">Add Expense</button>
+            </div>
+            <div class="search-sort">
+                <input type="text" id="search" placeholder="Search expenses..." onkeyup="searchExpenses()">
+                <select id="sort" onchange="sortExpenses()">
+                    <option value="asc">Sort by Date Asc</option>
+                    <option value="desc">Sort by Date Desc</option>
+                </select>
+            </div>
+            <div id="expenseList"></div>
+        </section>
+
+        <section id="budget" class="section hidden">
+            <h2>Budget</h2>
+            <p>Coming soon...</p>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
